@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WELCOMR TO OUR WEBSITE</title>
+</head>
+
+<body>
+    <div class="container" style="text-align: center;">
+        {% include 'navbar.html' %}
+        <h1>Welcome to our website</h1>
+        <form action="/index/" method="post">
+            {% csrf_token %}
+            <input type="checkbox" name="check">
+            <button>send</button>
+        </form>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum quas amet veritatis et error ipsam vitae fugit repudiandae libero, laborum fugiat iusto debitis eius, nobis harum expedita porro exercitationem delectus quaerat doloribus ea vero
+            consectetur? Reprehenderit velit, ratione, accusantium beatae in, dolorum veritatis ipsum quasi placeat cumque molestiae. Officia, aperiam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quasi rem delectus! Voluptatibus
+            dolore laudantium, impedit alias vel cum dolor? Vel doloremque rerum maxime nulla debitis ipsa consequatur ea quae officia illum quaerat fugiat voluptas quasi, qui soluta doloribus, adipisci eum rem nisi veritatis perferendis dolor molestiae
+            eius ab. Autem.</p>
+        <button>Contact Us</button> {%if isActive %}
+        <div>
+            <h1>Todays Date is {{date}}</h1>
+            <h1>Name is : {{name}}</h1>
+            <hr>
+            <h1>Student Data</h1>
+            <h2>Student name :{{student_data.student_name}}</h2>
+            <h2>Student College :{{student_data.student_college}}</h2>
+            <h2>Student City :{{student_data.student_city}}</h2>
+            <hr>
+            <h1>Favorate programs</h1>
+
+            {% for p in list_of_programs %}
+            <h3>{{p}}</h3>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
